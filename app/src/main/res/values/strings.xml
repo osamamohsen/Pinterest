@@ -3,6 +3,7 @@
     <string name="error">We Receive Error Whle Retrieve Data</string>
     <string name="error_connection">Please Check Your Error Connection</string>
     <string name="retry">Retry</string>
+    <string name="undo">UNDO</string>
     <string name="people_vote">People Vote</string>
     <string name="no_internet_found">No Internet Found. Check your connection or try again</string>
 </resources>

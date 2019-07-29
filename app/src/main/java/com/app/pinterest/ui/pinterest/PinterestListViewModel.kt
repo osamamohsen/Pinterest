@@ -12,24 +12,35 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class PinterestListViewModel : BaseViewModel() {
+    //inject api connection
     @Inject
     lateinit var pinterestApi: PinterestApi
-    val pinterestListAdapter: PinterestListAdapter =
-        PinterestListAdapter()
+
+    //initialize adapter
+    val pinterestListAdapter: PinterestListAdapter =  PinterestListAdapter()
+
+    //all list data
     var pinterestListAll = ArrayList<PinterestResponse>()
 
+    //initialize loader
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
+
+    //initialize error
     val errorClickListener = View.OnClickListener { loadPinterests() }
+
+    //initialize error message
     val errorMessage: MutableLiveData<Int> = MutableLiveData()
 
 
+    //initialize connection
     private lateinit var subscription: Disposable
 
     init{
         loadPinterests()
     }
 
-    public fun loadPinterests(){
+    //load all pinterests data
+    fun loadPinterests(){
         subscription = pinterestApi.getData()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -41,19 +52,23 @@ class PinterestListViewModel : BaseViewModel() {
             )
     }
 
+    //show loader
     private fun onRetrievePinterestListStart(){
         loadingVisibility.value = View.VISIBLE
     }
 
+    //hide loader
     private fun onRetrievePinterestListFinish(){
         loadingVisibility.value = View.GONE
     }
 
+    //update list data adapter
     private fun onRetrievePinterestListSuccess(pinterestList:List<PinterestResponse>){
         pinterestListAll.addAll(pinterestList)
         pinterestListAdapter.updatePinterestList(pinterestListAll)
     }
 
+    //found problem in retrieve data
     private fun onRetrievePinterestListError(){
         errorMessage.value = R.string.error
     }

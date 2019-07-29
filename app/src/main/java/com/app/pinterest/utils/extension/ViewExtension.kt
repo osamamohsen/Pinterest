@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 
 fun View.getParentActivity(): AppCompatActivity?{
+    /*
+        retrieve context if is extend from AppCompatActivity
+     */
+
     var context = this.context
     while (context is ContextWrapper) {
         if (context is AppCompatActivity) {

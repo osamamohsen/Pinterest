@@ -22,7 +22,9 @@ class NetworkErrorActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_network_error)
         viewModel = ViewModelProviders.of(this).get(NetworkViewModel::class.java)
 
-
+        /*
+            if submit Retry action , it will check if mobile had connected wifi or not
+         */
         viewModel.checkSubmit.observe(this, Observer { submit ->
             if (submit != null && submit.equals("Done")) {
                 finish()

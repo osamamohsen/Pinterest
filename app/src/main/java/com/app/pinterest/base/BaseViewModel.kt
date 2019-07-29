@@ -7,6 +7,10 @@ import com.app.pinterest.injection.module.NetworkModule
 import com.app.pinterest.ui.pinterest.PinterestListViewModel
 
 abstract class BaseViewModel : ViewModel(){
+    /*
+        first we make initialize the Network Module
+        which PinterestApi used in retrieve data
+     */
     private val injector: ViewModelInjector = DaggerViewModelInjector
         .builder()
         .networkModule(NetworkModule)
@@ -21,6 +25,7 @@ abstract class BaseViewModel : ViewModel(){
      */
     private fun inject() {
         when (this) {
+            // inject PinterestListViewModel
             is PinterestListViewModel -> injector.inject(this)
         }
     }

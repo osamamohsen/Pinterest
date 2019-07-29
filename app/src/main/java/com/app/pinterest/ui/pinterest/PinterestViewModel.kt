@@ -1,5 +1,6 @@
 package com.app.pinterest.ui.pinterest
 
+import android.util.Log
 import com.app.pinterest.base.BaseViewModel
 import com.app.pinterest.model.PinterestResponse
 
@@ -12,6 +13,14 @@ class PinterestViewModel : BaseViewModel() {
 
     fun getPinterest(): PinterestResponse? {
         return pinterest
+    }
+
+    fun getImageUrl():String{
+        var imageUrl = ""
+        if(pinterest != null) {
+            imageUrl = pinterest?.user?.profile_image?.medium.toString()
+        }
+        return imageUrl
     }
 
     fun getCategories():String{

@@ -18,13 +18,13 @@ class NetworkViewModel:BaseViewModel() {
     val animation:Animation = loadAnimation(MyApplication.instance, com.app.pinterest.R.anim.bounce)
 
     fun onClick(){
-        if(Helper.checkConnection())
+        //check connection is ready to connect
+        if(Helper.hasNetwork()!!)
             checkSubmit.value = "Done"
     }
 
     fun onClickVoid(): Void? {
         onClick()
-        Log.e("click","done2")
-        return null as Void?
+        return null
     }
 }
