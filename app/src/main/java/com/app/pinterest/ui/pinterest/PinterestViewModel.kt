@@ -16,6 +16,7 @@ class PinterestViewModel : BaseViewModel() {
     }
 
     fun getImageUrl():String{
+        //will be check on connection
         var imageUrl = ""
         if(pinterest != null) {
             imageUrl = pinterest?.user?.profile_image?.medium.toString()

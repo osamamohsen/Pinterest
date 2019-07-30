@@ -1,6 +1,7 @@
 package com.app.pinterest.app
 
 import android.support.multidex.MultiDexApplication
+import com.irozon.miva.Miva
 
 /*
     is consider an application instance for all application
@@ -11,6 +12,7 @@ class MyApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+
     }
 
     companion object {

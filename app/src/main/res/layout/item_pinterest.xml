@@ -59,7 +59,7 @@
 
             <TextView
                     android:textSize="@dimen/sp11_5"
-                    android:text="@{`width:`+ viewModel.pinterest.width + `, height:` + viewModel.pinterest.heigth }"
+                    android:text="@{`width:`+ viewModel.pinterest.width + `, height:` + viewModel.pinterest.height }"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView3" android:layout_marginTop="8dp"

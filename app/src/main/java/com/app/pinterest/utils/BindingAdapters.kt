@@ -25,10 +25,12 @@ import android.widget.TextView
 import com.app.pinterest.R
 import com.app.pinterest.app.MyApplication
 import com.app.pinterest.ui.pinterest.PinterestListAdapter
-import com.app.pinterest.utils.image.DownloadImageTask
+import com.irozon.miva.extension.source
 import com.makeramen.roundedimageview.RoundedImageView
 import net.gahfy.mvvmposts.utils.extension.getParentActivity
 import java.net.URL
+
+
 
 //adapter list data
 @BindingAdapter("adapter")
@@ -119,8 +121,12 @@ fun setMutableText(view: TextView,  text: MutableLiveData<String>?) {
 @BindingAdapter("imageUrl")
 fun setImageUrl(view: ImageView, imageUrl:String) {
     if(!imageUrl.equals("")) {
-        Log.e("imageUrl",imageUrl)
-        DownloadImageTask(view).execute(imageUrl);
+        //Log.e("imageUrl",imageUrl)
+        view.source = imageUrl
+
+//        imgLoader.DisplayImage(imageUrl, view);
+//        DownloadImageTask(view).execute(imageUrl);
+//        SaveImageTask(view,imageUrl).execute(imageUrl)
     }
 }
 
