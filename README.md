@@ -18,7 +18,7 @@ Languages, libraries and tools used
 imageView.placeholder = resources.getDrawable(R.drawable.placeholder)
 imageView.source = imageUrl // Url or drawable resource
 ```
-#### Using Mural Builder
+#### Using Miva Builder
 ```java
 Miva.with(this)
      .placeholder(R.drawable.placeholder)
