@@ -20,7 +20,7 @@ imageView.source = imageUrl // Url or drawable resource
 ```
 #### Using Mural Builder
 ```java
-Mural.with(this)
+Miva.with(this)
      .placeholder(R.drawable.placeholder)
      .source(imageUrl)
      .loadImage(imageView)
@@ -28,7 +28,7 @@ Mural.with(this)
 
 ##### Other options
 ```java
-Mural.with(this)
+Miva.with(this)
      .placeholder(R.drawable.placeholder)
      .resize(300, 300) // here resize image default (500 x 500)
      .disableCache() // Disable cache. By default its enabled
