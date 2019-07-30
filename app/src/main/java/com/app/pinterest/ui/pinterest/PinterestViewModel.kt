@@ -6,9 +6,11 @@ import com.app.pinterest.model.PinterestResponse
 
 class PinterestViewModel : BaseViewModel() {
     private var pinterest: PinterestResponse? = null
+    private var net: String = ""
 
-    fun bind(pinterest: PinterestResponse) {
+    fun bind(pinterest: PinterestResponse,net:String) {
         this.pinterest = pinterest
+        this.net = net
     }
 
     fun getPinterest(): PinterestResponse? {
@@ -19,7 +21,12 @@ class PinterestViewModel : BaseViewModel() {
         //will be check on connection
         var imageUrl = ""
         if(pinterest != null) {
-            imageUrl = pinterest?.user?.profile_image?.medium.toString()
+            if(net.equals("2G"))
+                imageUrl = pinterest?.user?.profile_image?.small.toString()
+            else if(net.equals("3G"))
+                imageUrl = pinterest?.user?.profile_image?.medium.toString()
+            else
+                imageUrl = pinterest?.user?.profile_image?.large.toString()
         }
         return imageUrl
     }

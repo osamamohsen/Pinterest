@@ -1,6 +1,7 @@
 package com.app.pinterest.ui.pinterest
 
 import android.arch.lifecycle.MutableLiveData
+import android.support.constraint.solver.widgets.Helper
 import android.view.View
 import com.app.pinterest.R
 import com.app.pinterest.base.BaseViewModel
@@ -65,7 +66,8 @@ class PinterestListViewModel : BaseViewModel() {
     //update list data adapter
     private fun onRetrievePinterestListSuccess(pinterestList:List<PinterestResponse>){
         pinterestListAll.addAll(pinterestList)
-        pinterestListAdapter.updatePinterestList(pinterestListAll)
+        var network = com.app.pinterest.utils.Helper.getNetworkClass()
+        pinterestListAdapter.updatePinterestList(pinterestListAll,network)
     }
 
     //found problem in retrieve data

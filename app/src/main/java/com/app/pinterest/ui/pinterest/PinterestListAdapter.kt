@@ -18,6 +18,7 @@ class PinterestListAdapter: RecyclerView.Adapter<PinterestListAdapter.ViewHolder
     private lateinit var pinterestList:ArrayList<PinterestResponse>
     private var removeItem: PinterestResponse? = null
     private var removePosition: Int = 0
+    private var networkStrength: String = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // binding item_pinterest layout
@@ -28,7 +29,7 @@ class PinterestListAdapter: RecyclerView.Adapter<PinterestListAdapter.ViewHolder
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(pinterestList[position])
+        holder.bind(pinterestList[position],networkStrength)
     }
 
     override fun getItemCount(): Int {
@@ -36,9 +37,10 @@ class PinterestListAdapter: RecyclerView.Adapter<PinterestListAdapter.ViewHolder
         return if(::pinterestList.isInitialized) pinterestList.size else 0
     }
 
-    fun updatePinterestList(pinterestList:ArrayList<PinterestResponse>){
+    fun updatePinterestList(pinterestList:ArrayList<PinterestResponse>,networkStrength:String){
         //update data after call service again in scroll , and notify list which end with
         this.pinterestList = pinterestList
+        this.networkStrength = networkStrength
         notifyItemRangeInserted(getItemCount(), pinterestList.size - 1);
     }
 
@@ -63,8 +65,8 @@ class PinterestListAdapter: RecyclerView.Adapter<PinterestListAdapter.ViewHolder
         private val viewModel = PinterestViewModel()
 
         //bint
-        fun bind(pinterest:PinterestResponse){
-            viewModel.bind(pinterest)
+        fun bind(pinterest:PinterestResponse,networkStrength: String){
+            viewModel.bind(pinterest,networkStrength)
             binding.viewModel = viewModel
         }
     }
