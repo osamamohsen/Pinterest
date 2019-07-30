@@ -7,7 +7,7 @@ Languages, libraries and tools used
 - [Kotlin](https://kotlinlang.org/)
 - [MVVM](https://www.toptal.com/android/android-apps-mvvm-with-clean-architecture) Design Pattern Clean Architecture
 - [Retrofit 2](http://square.github.io/retrofit/) Network communication
-- [RxJava](https://github.com/ReactiveX/RxJava)
+- [RxJava](https://github.com/ReactiveX/RxJava) Reactive Extensions for the JVM
 - [Dagger 2](http://google.github.io/dagger/) Dependency Injection
 
 
