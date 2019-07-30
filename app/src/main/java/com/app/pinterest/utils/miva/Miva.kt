@@ -1,11 +1,13 @@
 package com.irozon.miva
 
+import android.app.ActivityManager
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.support.annotation.AnyRes
 import android.support.annotation.DrawableRes
 import android.widget.ImageView
+import com.app.pinterest.app.MyApplication
 
 import com.irozon.miva.async.LoadBitmapFromDrawableTask
 import com.irozon.miva.async.LoadBitmapFromURLTask
@@ -26,6 +28,8 @@ class Miva {
     private var mWidth = DEFAULT_WIDTH
     private var mHeight = DEFAULT_HEIGHT
     private var cacheAllowed = 1f
+    private var cacheMaxCapacity = ((MyApplication.instance?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager)
+        .memoryClass * 1024 * 1024).toFloat()
 
     companion object {
         private var contextWeakReference: WeakReference<Context>? = null
@@ -111,6 +115,10 @@ class Miva {
             mPlaceHolderBitmap = PlaceHolder.placeHolderBitmap
         }
         return getMiva()
+    }
+
+    fun setMaxCapacityCache(float: Float){
+        cacheMaxCapacity = float
     }
 
     /**
