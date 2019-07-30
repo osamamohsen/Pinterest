@@ -6,9 +6,9 @@ Languages, libraries and tools used
 
 - [Kotlin](https://kotlinlang.org/)
 - [MVVM](https://www.toptal.com/android/android-apps-mvvm-with-clean-architecture) Design Pattern Clean Architecture
-- [Network] communication with [Retrofit 2](http://square.github.io/retrofit/)
-- [RxJava](https://github.com/ReactiveX/RxJava) and [RxAndroid](https://github.com/ReactiveX/RxAndroid) 
-- Dependency Injection with [Dagger 2](http://google.github.io/dagger/)
+- [Retrofit 2](http://square.github.io/retrofit/) Network communication
+- [RxJava](https://github.com/ReactiveX/RxJava)
+- [Dagger 2](http://google.github.io/dagger/) Dependency Injection
 
 
 # Miva Image Loader
