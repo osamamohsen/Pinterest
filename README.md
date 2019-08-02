@@ -11,27 +11,6 @@ Languages, libraries and tools used
 - [Dagger 2](http://google.github.io/dagger/) Dependency Injection
 
 
-# Miva Image Loader
-
-#### Using Kotlin Extensions
-```java
-imageView.placeholder = resources.getDrawable(R.drawable.placeholder)
-imageView.source = imageUrl // Url or drawable resource
-```
-#### Using Miva Builder
-```java
-Miva.with(this)
-     .placeholder(R.drawable.placeholder)
-     .source(imageUrl)
-     .loadImage(imageView)
-```
-
-##### Other options
-```java
-Miva.with(this)
-     .placeholder(R.drawable.placeholder)
-     .resize(300, 300) // here resize image default (500 x 500)
-     .disableCache() // Disable cache. By default its enabled
-     .setMaxCapacityCache(your_float_here) // default memoryClass * 1024 * 1024 as float
-     .source(imageUrl)
-     .loadImage(imageView)
+# Mvil Image Loader
+Mvil is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface. Mvil primary focus is on making scrolling any kind of a list of images as smooth and fast as possible, but Mvil is also effective for almost any case where you need to fetch, resize, and display a remote image.
+[Mvil](https://github.com/osamamohsen/Mvil)
