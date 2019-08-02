@@ -25,8 +25,9 @@ import android.widget.TextView
 import com.app.pinterest.R
 import com.app.pinterest.app.MyApplication
 import com.app.pinterest.ui.pinterest.PinterestListAdapter
-import com.irozon.miva.extension.source
+import com.irozon.mvil.extension.source
 import com.makeramen.roundedimageview.RoundedImageView
+import com.mind.valley.mvil.Mvil
 import net.gahfy.mvvmposts.utils.extension.getParentActivity
 import java.net.URL
 
@@ -121,25 +122,7 @@ fun setMutableText(view: TextView,  text: MutableLiveData<String>?) {
 @BindingAdapter("imageUrl")
 fun setImageUrl(view: ImageView, imageUrl:String) {
     if(!imageUrl.equals("")) {
-        //Log.e("imageUrl",imageUrl)
         view.source = imageUrl
-
-//        imgLoader.DisplayImage(imageUrl, view);
-//        DownloadImageTask(view).execute(imageUrl);
-//        SaveImageTask(view,imageUrl).execute(imageUrl)
     }
 }
-
-
-object Bindings {
-    //responsible for add animation for view
-    @BindingAdapter("customOnClick")
-    @JvmStatic
-    fun setCustomClick(view: View,  anim: (Animation) -> Any?) {
-        val animation:Animation = AnimationUtils.loadAnimation(MyApplication.instance, R.anim.bounce)
-        view.animation = animation
-        animation.start()
-    }
-}
-
 

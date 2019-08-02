@@ -17,6 +17,7 @@ import com.app.pinterest.R
 import com.app.pinterest.databinding.ActivityPinterestBinding
 import com.app.pinterest.ui.network.NetworkErrorActivity
 import com.app.pinterest.utils.EndlessRecyclerViewScrollListener
+import com.app.pinterest.utils.Helper
 
 
 class PinterestActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class PinterestActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         //Binding activity
         binding = DataBindingUtil.setContentView(this, R.layout.activity_pinterest)
         //inject PinterestListViewModel

@@ -46,7 +46,6 @@
                     style="@style/btn_submit_primary"
                     android:text="@string/retry"
                     android:onClick="@{() -> viewModel.onClick()}"
-                    app:customOnClick="@{(someInput) -> viewModel.onClickVoid()}"
                     android:layout_marginTop="@dimen/dp20h"
                     android:layout_height="wrap_content"/>
 

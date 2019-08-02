@@ -2,6 +2,7 @@ package com.app.pinterest.ui.pinterest
 
 import android.arch.lifecycle.MutableLiveData
 import android.support.constraint.solver.widgets.Helper
+import android.util.Log
 import android.view.View
 import com.app.pinterest.R
 import com.app.pinterest.base.BaseViewModel
@@ -18,7 +19,7 @@ class PinterestListViewModel : BaseViewModel() {
     lateinit var pinterestApi: PinterestApi
 
     //initialize adapter
-    val pinterestListAdapter: PinterestListAdapter =  PinterestListAdapter()
+    val pinterestListAdapter: PinterestListAdapter = PinterestListAdapter()
 
     //all list data
     var pinterestListAll = ArrayList<PinterestResponse>()
@@ -36,42 +37,44 @@ class PinterestListViewModel : BaseViewModel() {
     //initialize connection
     private lateinit var subscription: Disposable
 
-    init{
+    init {
         loadPinterests()
     }
 
     //load all pinterests data
-    fun loadPinterests(){
+    fun loadPinterests() {
         subscription = pinterestApi.getData()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { onRetrievePinterestListStart() }
             .doOnTerminate { onRetrievePinterestListFinish() }
             .subscribe(
-                { result -> onRetrievePinterestListSuccess(result) },
+                { result ->
+                    onRetrievePinterestListSuccess(result)
+                },
                 { onRetrievePinterestListError() }
             )
     }
 
     //show loader
-    private fun onRetrievePinterestListStart(){
+    private fun onRetrievePinterestListStart() {
         loadingVisibility.value = View.VISIBLE
     }
 
     //hide loader
-    private fun onRetrievePinterestListFinish(){
+    private fun onRetrievePinterestListFinish() {
         loadingVisibility.value = View.GONE
     }
 
     //update list data adapter
-    private fun onRetrievePinterestListSuccess(pinterestList:List<PinterestResponse>){
+    private fun onRetrievePinterestListSuccess(pinterestList: List<PinterestResponse>) {
         pinterestListAll.addAll(pinterestList)
         var network = com.app.pinterest.utils.Helper.getNetworkClass()
-        pinterestListAdapter.updatePinterestList(pinterestListAll,network)
+        pinterestListAdapter.updatePinterestList(pinterestListAll, network)
     }
 
     //found problem in retrieve data
-    private fun onRetrievePinterestListError(){
+    private fun onRetrievePinterestListError() {
         errorMessage.value = R.string.error
     }
 
