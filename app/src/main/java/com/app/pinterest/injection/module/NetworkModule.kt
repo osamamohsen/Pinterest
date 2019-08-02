@@ -48,7 +48,7 @@ object NetworkModule {
 
         val okHttpClient = OkHttpClient.Builder()
             // Specify the cache we created earlier.
-            .cache(myCache)
+//            .cache(myCache)
             // Add an Interceptor to the OkHttpClient.
             .addInterceptor { chain ->
 
