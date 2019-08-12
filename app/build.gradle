@@ -59,8 +59,7 @@ dependencies {
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
     //MVIL Image Loader Library
-    implementation 'com.github.osamamohsen:Mvil:1.5'
-    implementation "org.jetbrains.anko:anko:0.10.5"
+    implementation 'com.github.osamamohsen:Mvil:1.7'
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
